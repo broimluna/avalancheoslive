@@ -112,7 +112,6 @@ $(document).ready(function(){
   function enableWatermark() {
 	// Get the checkbox
 	var checkBox = document.getElementById("waterCheck");
-	document.getElementById("waterCheck").disabled = true;
 	// Get the output text
 	var text = document.getElementById("watermark");
 	// If the checkbox is checked, display the output text
