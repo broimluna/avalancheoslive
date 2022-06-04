@@ -40,7 +40,7 @@ input,select{vertical-align:middle}
 
 ::-webkit-scrollbar {
     width: 0.4em !important;
-    height: 0.5em !important;
+    height: 0.4em !important;
     scroll-behavior: smooth !important;
 }
 
@@ -75,7 +75,7 @@ input,select{vertical-align:middle}
 }
     
 .currentversion::before {
-    content: "22610.1";
+    content: "22614.1";
 }
 
 .appsBtn {
