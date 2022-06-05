@@ -75,7 +75,7 @@ input,select{vertical-align:middle}
 }
     
 .currentversion::before {
-    content: "22614.1";
+    content: "22620.1";
 }
 
 .appsBtn {
