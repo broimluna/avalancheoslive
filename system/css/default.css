@@ -63,7 +63,7 @@ input,select{vertical-align:middle}
     font-family: Arial, Helvetica, sans-serif;
 }
 .appsHtxt {
-	color: white;
+	color: black;
     text-align: center;
 }
 .appsHtxt::before {
@@ -75,7 +75,7 @@ input,select{vertical-align:middle}
 }
     
 .currentversion::before {
-    content: "22620.1";
+    content: "22700.1";
 }
 
 .appsBtn {
@@ -94,7 +94,7 @@ input,select{vertical-align:middle}
 #time { 
                 position:absolute;           
                 top:11px;
-                color: white;
+                color: black;
                 font-family: 'Helvetica', 'Arial', sans-serif;
                 text-align: center;
                 width: 97%;
@@ -111,7 +111,7 @@ desktop {
     height: 100%;
     width: 100%;
 	background-color: #3bdefa;
-    background-image: url(../images/bgdark.jpg);
+    background-image: url(../images/bgs/bglight.jpg);
     background-size: cover;
     overflow: hidden;
     top: 0;
@@ -132,7 +132,40 @@ desktop {
     color: black;
 
 }
+/* Context menu */
+.context-menu {
+    position: absolute;
+    text-align: center;
+    background: transparent;
+    border: 1px solid transparent;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
+    box-shadow: 0px 0px 15px 0px #000000;
+    border-radius: 10px;
+}
 
+.context-menu ul {
+    padding: 0px;
+    margin: 0px;
+    min-width: 150px;
+    list-style: none;
+}
+
+.context-menu ul li {
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.context-menu ul li:hover {
+    background: rgba(41, 39, 39, 0.3);
+}
+/* end of context menu*/
 
 #settingsbutton {
         border: 2px solid #2C2C2B;
@@ -236,22 +269,22 @@ desktop {
 
 #appsmenu {
     position: fixed;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 450px;
     height: 0px;
     left: 0;
     right: 0;
-    bottom: 55px;
+    bottom: 44px;
     z-index: 2;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    background-color: #2c2c2cad;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
-    box-shadow: 0px 0px 15px 0px #000000;
+    background-color: #9d9d9dad;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top-right-radius: 10px;
+    /* -webkit-box-shadow: 0px 0px 15px 0px #000000; */
+    /* box-shadow: 0px 0px 15px 0px #000000; */
 }
 
 #appsmenu.opened {
@@ -274,13 +307,13 @@ desktop {
     cursor: pointer;
     padding: 2px 8px;
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     border-radius: 5px;
     transition: 0.2s;
 }
 #appicons a:hover {
-	background: rgb(255, 255, 255);
-	color: black;
+	background: black;
+	color: white;
 }
 
 
@@ -304,7 +337,7 @@ desktop {
 
 
 #apps img:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     transition: 0.5s;
     border-radius: 4px;
 }
@@ -314,12 +347,12 @@ desktop {
 }
 
 a {
-color: white;
+    color: black;
 }
-
 h1 {
-    color: white;
+        color: black;
 }
+    
 
 #window6 > .wincontent iframe {
     height: calc(100% - 20px);
@@ -346,8 +379,9 @@ h1 {
     top: 0 !important;
     right: 0 !important;
     left: 0 !important;
-    border-radius: 7px;
+    border-radius: 0px;
     bottom: 44px !important;
+    border: 0px solid;
 }
 
 .window.fullSizeWindow .wincontent {
@@ -483,11 +517,11 @@ left: 10px;
 
 .task.activeTab {
     transform: scale(1.45);
-    background-color: #2e2e2e;
+    background-color: #ffffff;
 }
 
 .task:hover {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     color: #FFF;
 }
 .task.minimizedTab {
@@ -509,17 +543,21 @@ left: 10px;
 	bottom: 0;
 	left: 0;
 	right: 0;
-    margin: 0 auto;
-	background: #2c2c2cad;
-    /*border-radius: 50px;*/
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+	margin: 0 auto;
+	background: #9d9d9dad;
+	/*border-radius: 50px;*/
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
 	z-index: 99998;
-    transition: 1s;
-    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
-    box-shadow: 0px 0px 15px 0px #000000;
-    text-align: center;
+	transition: 1s;
+	/* -webkit-box-shadow: 0px 0px 15px 0px #000000; */
+	/* box-shadow: 0px 0px 15px 0px #000000; */
+	text-align: unset;
 }
+
+
+
+
 
 #icons {
 	position: absolute;
@@ -543,7 +581,7 @@ left: 10px;
 }
 #watermark {
     position: absolute;
-    display: inline-block;
+    display: none;
     bottom: 60px;
     right: 20px;
     font-weight: bold;

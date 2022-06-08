@@ -1,0 +1,76 @@
+#appsmenu {
+    margin: 0 auto;
+    left: 0 !important;
+    left: 5px;
+    border-radius: 10px;
+    bottom: 55px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 0px 0px 15px 0px #000000;
+    background-color: #2c2c2cad;
+}
+
+.currenttheme::before {
+    content: "Modern Theme";
+}
+
+.window.fullSizeWindow {
+    border-radius: 7px;
+    border: 2px solid #2c2c2cad;
+}
+
+desktop {
+    background: url(../../images/bgs/bgmodern.jpg);
+}
+#taskbar {
+    border-radius: 0px;
+    text-align: center !important;
+    -webkit-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 0px 0px 15px 0px #000000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background-color: #2c2c2cad;
+}
+
+.appsHtxt {
+	color: white;
+    text-align: center;
+}
+
+#time { 
+                
+	color: white;
+                
+}
+
+#appicons a {
+    
+    color: white;
+    
+}
+#appicons a:hover {
+	background: white;
+	color: black;
+}
+
+#apps img:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+a {
+color: white;
+}
+h1 {
+    color: white;
+    }
+   
+    .task.activeTab {
+        transform: scale(1.45);
+        background-color: #2e2e2e;
+    }
+    
+    .task:hover {
+        background: rgba(0, 0, 0, 0.3);
+        color: #FFF;
+    }
