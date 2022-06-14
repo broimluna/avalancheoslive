@@ -57,6 +57,15 @@ desktop {
 .currenttheme::before {
     content: "Classic";
 }
+#time {
+    color: white;
+}
+a {
+    color: white;
+}
+h1 {
+    color: white;
+}
 #taskbar {
     text-align: unset;
     position: absolute;
