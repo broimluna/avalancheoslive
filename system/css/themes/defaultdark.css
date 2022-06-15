@@ -90,8 +90,11 @@ desktop {
     
 }
 #appicons a:hover {
-	background: white;
-	color: black;
+	moz-border-radius:3px; 
+    -webkit-border-radius:3px;
+    background: #0000007a;
+    border: 1px solid black;
+    transition: 0.1s;
 }
 
 
