@@ -5,15 +5,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="canonical" href="https://html5-templates.com/" />
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="system/js/script.js"></script>	
 	<link rel="stylesheet" type="text/css" href="system/css/style.css" />
-	<title>AvalancheOS Beta</title>
+	<title>AvalancheOS</title>
 </head>
-<body>
+<body onload="startTime()">
+
 	<div id="desktop">
+		
 		<div class="window closed" data-html="true" icon="<img src='system/img/icons/paint-32x32.png' width='25' height='25'>" data-title="Paint">
 			<iframe width="100%" height="100%" src="apps/jspaint/index.html"></iframe>
 			</div>
@@ -45,16 +46,16 @@
 		
 		<div id="taskbar">
 			<button class="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='44' height='28'></button>
+			<a id="time"></a>
 		</div>
 		
 		<div id="icons">
-			<a class="openWindow" data-id="0">Open first</a>
-			<a class="openWindow" data-id="1">Open second</a>
-			<a class="openWindow" data-id="2">Open third</a>
-			<a class="openWindow" data-id="3">Welcome screen</a>
+		Should be working on Technical Usability Preview 3/4.
 		</div>
+		
+		
 		<div id="appsmenu">
-			<h1 class="appsHtxt"></h1>
+			<h1 class="appsHtxt">Apps</h1>
 				<div id="appicons">
 					<center>
 						<a class="openWindow" data-id="0"><img border="0" alt="" src="system/img/icons/paint-32x32.png" width="32" height="32"><br>Paint</a>
@@ -64,20 +65,38 @@
 						<a class="openWindow" data-id="4"><img border="0" alt="" src="system/img/icons/calc-32x32.png" width="32" height="32"><br>Calculator</a>
 						<a class="openWindow" data-id="5"><img border="0" alt="" src="system/img/icons/bronze-32x32.png" width="32" height="32"><br>Bronze Browser</a>
 						<a class="openWindow" data-id="6"><img border="0" alt="" src="system/img/icons/hyperos-32x32.png" width="32" height="32"><br>HyperOS</a>
-						<a class="openWindow" data-id="7"><img border="0" alt="" src="system/img/icons/settings-32x32.png" width="32" height="32"><br>Settings</a>
 						
 					</center>
 				</div>
 				<div class="bottomBtns">
 					<a target="_blank" href='https://discord.gg/HpHWuanm4C'><img src="system/img/icons/discord.png" height="32" width="32" title="Join the Discord!"></a>
-					<a target="_blank" href='https://github.com/broimluna'><img src="system/img/icons/github.png" height="32" width="32" title="Follow my GitHub!"></a>
-					<a href='lockscreen.html'><img src="system/img/icons/logoff-32x32.png" height="32" width="32" title="Logs off the User"></a>
-					<a href='index.html'><img src="system/img/icons/shutdown-32x32.png" height="32" width="32" title="Shut's down the PC."></a>
+					<a class="btmbtninvert" target="_blank" href='https://github.com/broimluna'><img src="system/img/icons/github.png" height="32" width="32" title="Follow my GitHub!"></a>
 				  </div>
 		</div>
+
+		<div id="contextMenu" class="context-menu" style="display: none; left: 140px; top: 421px;">
+			<ul>
+				<li onclick="window.location.reload(true);">Reload AvalancheOS</li>
+				<li onclick="activatefull(document.documentElement);">Activate Fullscreen</li>
+				<li onclick="deactivatefull();">Deactivate Fullscreen</li>
+				
+
+			</ul>
+			</div>
+
+			<div id="startup">
+				<div class="startuplogo">
+					<img src="system/img/sys_logo.png" width="250px" alt="" />
+				</div>
+					<div class="startupload">
+					<img src="system/img/loading.gif" width="150px" alt="" />
+				</div>
+			</div>
+
 	</div>
 	
-	<a id="watermark">AvalancheOS<br>Technical Usability Preview 1<br>Build 1023</a>	
+	<a id="watermark">AvalancheOS<br>Technical Usability Preview 2<br>Build 1111</a>
+
 </body>
 
 </html>

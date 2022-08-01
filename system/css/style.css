@@ -1,5 +1,5 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1;	font-family: Arial, Helvetica, sans-serif;}
+body{line-height:1;	font-family: Arial, Helvetica, sans-serif;color:white;}
 h1 {font-size: 1.5em;margin-bottom: 10px;}
 p{font-size: 1em;line-height: 1.3em;margin-bottom: 10px;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -32,6 +32,13 @@ input,select{vertical-align:middle}
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
+  .appsHtxt {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 12px 0px;
+}
+
 #desktop {
 	font-family: Arial, Helvetica, sans-serif;
     position: fixed;
@@ -45,9 +52,18 @@ input,select{vertical-align:middle}
     left: 0;
     right: 0;
 }
+#time { 
+    position: absolute;           
+    top: 6px;
+    right: 2px;
+    color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-align: right;
+    width: 97%;
+    font-size: 15px;
+}
 #appsmenu {
     position: fixed;
-    /* margin: 0 auto; */
     width: 260px;
     height: 0px;
     left: 0;
@@ -82,12 +98,12 @@ input,select{vertical-align:middle}
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    background-color: #9d9d9dad;
+    background-color: #00000085;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border-top-right-radius: 10px;
-    /* -webkit-box-shadow: 0px 0px 15px 0px #000000; */
-    /* box-shadow: 0px 0px 15px 0px #000000; */
+    -webkit-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 0px 0px 15px 0px #000000;
 }
 
 #appsmenu.opened {
@@ -107,12 +123,15 @@ input,select{vertical-align:middle}
     list-style:none;
 }
 #appicons a {
-    border:solid 1px transparent; 
-    display:block; 
+    border:
+    solid 1px transparent;
+    display:
+    block; 
     padding:3px; 
     margin:3px;
-    color:black; 
-    text-decoration:none; 
+    color: white;
+    text-decoration:
+    none; 
     min-width:220px;
     cursor: pointer;
     text-align: left;
@@ -120,7 +139,7 @@ input,select{vertical-align:middle}
 #appicons a:hover {
 	moz-border-radius:3px; 
     -webkit-border-radius:3px;
-    background: #ffffff7a;
+    background: #0000007a;
     border: 1px solid white;
     transition: 0.1s;
 }
@@ -132,6 +151,41 @@ input,select{vertical-align:middle}
 #appicons a br {
     display: none;
 }
+.context-menu {
+    position: absolute;
+    text-align: center;
+    background: transparent;
+    border: 3px solid transparent;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    -webkit-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 0px 0px 15px 0px #000000;
+    border-radius: 10px;
+}
+
+.context-menu ul {
+    padding: 0px;
+    margin: 0px;
+    min-width: 150px;
+    list-style: none;
+}
+
+.context-menu ul li {
+    border-radius: 5px;
+    background: transparent;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 1px solid transparent;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.context-menu ul li:hover {
+    background: #00000024;
+    border: 1px solid white;
+}
 .bottomBtns {
 	position: absolute;
 	bottom: 2px;
@@ -141,12 +195,37 @@ input,select{vertical-align:middle}
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: transparent;
 }
+.btmbtninvert {
+    filter: invert(1);
+}
+#startup {
+    position: fixed;
+    display: block; 
+    background:black;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+}
+.startuplogo {
+    position: absolute;
+    top: 25%;
+    width: 99%;
+    text-align: center;
+    font-size: 18px;
+  }
+.startupload {
+    position: absolute;
+    top: 75%;
+    width: 99%;
+    text-align: center;
+    font-size: 18px;
+  }
 .window {
     position: absolute;
     border: 2px solid #000;
-    background: #ffffff8c;
-	border-radius: 5px;
-	z-index: 1000;
+    background: #0000007a;
+    border-radius: 5px;
+    z-index: 1000;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 }
@@ -206,11 +285,11 @@ input,select{vertical-align:middle}
     left: 10px;
 }
 .winminimize > span {
-	border-bottom: 3px solid #000;
+	border-bottom: 3px solid white;
 }
 .winmaximize > span {
-	border: 2px solid #000;
-	border-top: 3px solid #000;
+	border: 2px solid white;
+	border-top: 3px solid white;
 }
 .winmaximize > span:nth-child(2) {
 	display: none;
@@ -236,6 +315,7 @@ input,select{vertical-align:middle}
     margin: 0px 3px 0 10px;
     line-height: 29px;
     font-size: 17px;
+    color: white;
 }
 .taskbarPanel {
     display: inline-block;
@@ -263,17 +343,26 @@ input,select{vertical-align:middle}
     cursor: pointer;
     transform: scale(1.12);
     height: 0px;
+    transition: 0.5s;
 }
 .appsPanel img {
     transition: 0.5s;
     margin:0px 0px;
 }
+.appsPanel img:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+}
 .taskbarPanel:hover{
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
     color: #FFF;
 }
 .taskbarPanel.activeTab {
-    background-color: #ffffff;
+    background-color: #2e2e2e;
+}
+.taskbarPanel.activeTab:hover {
+    background: rgba(0, 0, 0, 0.3);
 }
 .taskbarPanel.minimizedTab {
     transition: 0.5s;
@@ -288,12 +377,13 @@ input,select{vertical-align:middle}
 	border-top: 2px solid transparent;
 	bottom: 0;
 	left: 0;
+    z-index: 10;
 	right: 0;
-	background: #9d9d9dad;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -webkit-box-shadow: 0px 0px 15px 0px #000000;
-    box-shadow: 0px 0px 15px 0px #000000;
+	background: #00000085;
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	-webkit-box-shadow: 0px 0px 15px 0px #000000;
+	/* box-shadow: 0px 0px 15px 0px #000000; */
 }
 #icons {
 	position: absolute;
@@ -318,7 +408,7 @@ input,select{vertical-align:middle}
     right: 20px;
     font-weight: bold;
     font-size: 15px;
-    color: black;
+    color: white;
 }
 
 /*Demo styles BEGIN*/

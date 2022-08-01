@@ -5,8 +5,91 @@ windowTopPos = new Array,
 windowLeftPos = new Array,
 panel,
 id;
+
+setTimeout(function(){
+    $("#startup").fadeOut(400);
+}, 5000)
+
+
+function startTime(){
+    var date = new Date();
+    var h = date.getHours(); 
+    var m = date.getMinutes(); 
+	var d = date.getDate();
+	var mo = date.getMonth();
+	var y = date.getFullYear();
+	var t = document.getElementById("time");
+	var br = '<br>';
+   // var s = date.getSeconds(); 
+    var session = "AM";
+    
+    if(h == 0){
+        h = 12;
+    }
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
+    }
+    
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    //s = (s < 10) ? "0" + s : s;
+    
+	t.insertAdjacentHTML('beforeend', br);
+    var time = h + ":" + m + " " + session + " - " + y + "-" + mo + "-" + d;
+    document.getElementById("time").innerText = time;
+    document.getElementById("time").textContent = time;
+    setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
+}
+document.oncontextmenu = rightClick;
+  
+  function rightClick(clickEvent) {
+	  clickEvent.preventDefault();
+	  // return false;
+  }
+  document.onclick = hideMenu;
+  document.oncontextmenu = rightClick;
+	
+  function hideMenu() {
+	  document.getElementById("contextMenu")
+			  .style.display = "none"
+  }
+
+  function rightClick(e) {
+	  e.preventDefault();
+
+	  if (document.getElementById("contextMenu")
+			  .style.display == "block")
+		  hideMenu();
+	  else{
+		  var menu = document.getElementById("contextMenu")
+
+		  menu.style.display = 'block';
+		  menu.style.left = e.pageX + "px";
+		  menu.style.top = e.pageY + "px";
+	  }
+  }
+
+  function activatefull(ele) {
+	if (ele.requestFullscreen) {
+		ele.requestFullscreen();
+	}
+}
+
+// Function for full screen activation
+function deactivatefull() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	}
 }
 
 function adjustFullScreenSize() {
