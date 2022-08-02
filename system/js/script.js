@@ -8,8 +8,11 @@ id;
 
 setTimeout(function(){
     $("#startup").fadeOut(400);
-}, 5000)
+}, 2000)
 
+$(function() {
+	$(".openWindow").draggable();
+  });
 
 function startTime(){
     var date = new Date();
@@ -37,12 +40,11 @@ function startTime(){
     //s = (s < 10) ? "0" + s : s;
     
 	t.insertAdjacentHTML('beforeend', br);
-    var time = h + ":" + m + " " + session + " - " + y + "-" + mo + "-" + d;
+    var time = y + "-" + mo + "-" + d + " - " + h + ":" + m + " " + session;
     document.getElementById("time").innerText = time;
     document.getElementById("time").textContent = time;
     setTimeout(startTime, 1000);
 }
-
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
