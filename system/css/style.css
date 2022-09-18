@@ -1,7 +1,7 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
 body{line-height:1;	font-family: Arial, Helvetica, sans-serif;color:white;}
 h1 {font-size: 1.5em;margin-bottom: 10px;}
-p{font-size: 1em;line-height: 1.3em;margin-bottom: 10px;}
+p{font-size: 15px;line-height: 1.3em;margin-bottom: 10px;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 nav ul{list-style:none}
 blockquote,q{quotes:none}
@@ -23,6 +23,7 @@ input,select{vertical-align:middle}
 ::-webkit-scrollbar
 {
 	width: 6px;
+    height: 6px;
 	background-color: transparent;
 }
 
@@ -32,25 +33,35 @@ input,select{vertical-align:middle}
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
-  .appsHtxt {
+  #appsHtxt {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
     margin: 12px 0px;
 }
 
-#desktop {
+#colorop {
+    transition: 0.5s;
+}
+
+a, h1, p, ul, input {
+    color: white;
+}
+
+desktop {
 	font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     height: 100%;
     width: 100%;
-    background: url("../img/bg.png");
     background-size: cover !important;
+    background-image: url("https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-CA");
+    background-color: #3B6EA5;
 	overflow: hidden;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    transition: 0.2s;
 }
 #time { 
     position: absolute;           
@@ -59,7 +70,6 @@ input,select{vertical-align:middle}
     color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: right;
-    width: 97%;
     font-size: 15px;
 }
 
@@ -70,29 +80,27 @@ input,select{vertical-align:middle}
     height: 0px;
     left: 0;
     right: 0;
-    bottom: 34px;
-    z-index: 2;
+    bottom: 33px;
+    z-index: 2000;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    background-color: #00000085;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-top-right-radius: 10px;
-    -webkit-box-shadow: 0px 0px 15px 0px #000000;
-    box-shadow: 0px 0px 15px 0px #000000;
+    background: transparent;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top-right-radius: 16px;
 }
 
 #appsmenu.opened {
-    height: 415px; 
+    height: 390px; 
 }
-
 
 #appicons {
 	background:transparent; 
     border:solid 1px transparent; 
     margin: 7px 0 7px 7px;
-    height: 78%;
+    height: 85%;
     overflow-y: scroll;
     float:left; 
     display:block; 
@@ -125,16 +133,45 @@ input,select{vertical-align:middle}
 #appicons a br {
     display: none;
 }
+#themesrow {
+    overflow-x: scroll;
+    display: flex;
+    width: 99%;
+    height: 36px;
+    position: static;
+}
+#abranding {
+        display: inline-flex;
+       align-items:center;
+       font-size: 1.5em;
+       font-weight: bold; 
+}
+
+  .tab {
+    padding: 10px;
+    height: 70%;
+    overflow-y: scroll;
+    margin: -15px 0px;
+}
+#tabsettings {
+    padding: 10px 10px;
+}
+#tabsettings button {
+    margin: 0px -1px;
+}
+
+
+
 .context-menu {
     position: absolute;
     text-align: center;
     background: transparent;
     border: 3px solid transparent;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    -webkit-box-shadow: 0px 0px 15px 0px #000000;
-    box-shadow: 0px 0px 15px 0px #000000;
-    border-radius: 10px;
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .context-menu ul {
@@ -145,7 +182,7 @@ input,select{vertical-align:middle}
 }
 
 .context-menu ul li {
-    border-radius: 5px;
+    border-radius: 16px;
     background: transparent;
     padding-bottom: 7px;
     padding-top: 7px;
@@ -175,7 +212,10 @@ input,select{vertical-align:middle}
 #startup {
     position: fixed;
     display: block; 
-    background:black;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;
     z-index: 999999;
@@ -194,14 +234,28 @@ input,select{vertical-align:middle}
     text-align: center;
     font-size: 18px;
   }
+  button {
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-size: 15px;
+    background: #CCC;
+    font-weight: bold;
+    cursor: pointer;
+    height: 30px;
+    margin: 0px 2px;
+  }
+
 .window {
     position: absolute;
     border: 2px solid #000;
-    background: #0000007a;
-    border-radius: 5px;
+    /*background: #0000007a;
+    border-radius: 5px;*/
     z-index: 1000;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 .window.closed {
 	display: none;
@@ -217,6 +271,19 @@ input,select{vertical-align:middle}
     bottom: 32px !important;
     border: none !important;
 }
+
+
+.fullSizeWindow {
+    display: block;
+      border: 2px solid transparent;
+      border-radius: 0px;
+      position: fixed;
+      left: 0px !important;
+      top: 0px !important;
+      height: 100% !important;
+      width: 100% !important;    
+      z-index: 9999999 !important;
+}
 .fullSizeWindow .ui-resizable-handle {
 	display: none;
 }
@@ -225,7 +292,8 @@ input,select{vertical-align:middle}
     background-color: transparent;
     text-align: right;
     border-bottom: 2px solid transparent;
-    padding: 2px;
+    margin: 5px;
+    border-radius: 8px;
     cursor: move;
     height: 28px;
 }
@@ -240,7 +308,7 @@ input,select{vertical-align:middle}
     font-size: 19px;
     padding: 2px 10px;
     font-family: "Arial Black", Gadget, sans-serif;
-    border-radius: 5px;
+    border-radius: 12px;
     line-height: 20px;
     width: 12px;
     height: 20px;
@@ -250,7 +318,6 @@ input,select{vertical-align:middle}
 .windowHeader > span:hover {
 	background: rgba(255,255,255,0.3);
 }
-
 .windowHeader > span > span {
     display: inline-block;
     height: 8px;
@@ -285,6 +352,7 @@ input,select{vertical-align:middle}
     margin: 2px;
     border-radius: 0 0 5px 5px;
 }
+
 .windowHeader > strong {
     float: left;
     margin: 0px 3px 0 10px;
@@ -304,12 +372,12 @@ input,select{vertical-align:middle}
     font-weight: bold;
     cursor: pointer;
     padding: 0 1px;    
-    transform: scale(1.14);
+    transform: scale(1);
+    transition: 0.5s;
 }
 .appsPanel {
     display: inline-block;
     border: transparent;
-    border-radius: 4px;
     position: relative;
     font-size: 15px;
     padding: 0px 5px;
@@ -319,14 +387,19 @@ input,select{vertical-align:middle}
     transform: scale(1.12);
     height: 0px;
     transition: 0.5s;
+    opacity: 0.001;
+}
+.appsPanel:hover {
+    opacity: 1;
 }
 .appsPanel img {
     transition: 0.5s;
     margin:0px 0px;
 }
 .appsPanel img:hover {
-    background: rgba(0, 0, 0, 0.3);
-    transition: 0.5s;
+background: rgba(0, 0, 0, 0.5);
+transition: 0.5s;
+border-radius: 4px;
 }
 .taskbarPanel:hover{
     background: rgba(0, 0, 0, 0.3);
@@ -335,6 +408,7 @@ input,select{vertical-align:middle}
 }
 .taskbarPanel.activeTab {
     background-color: #2e2e2e;
+    transform: scale(1.14);
 }
 .taskbarPanel.activeTab:hover {
     background: rgba(0, 0, 0, 0.3);
@@ -349,19 +423,20 @@ input,select{vertical-align:middle}
 #taskbar {
 	position: absolute;
 	height: 32px;
-	border-top: 2px solid transparent;
+	border-top: 1px solid transparent;
 	bottom: 0;
 	left: 0;
-    z-index: 10;
+    z-index: 2000;
 	right: 0;
-	background: #00000085;
-	backdrop-filter: blur(6px);
-	-webkit-backdrop-filter: blur(6px);
+	background: transparent;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 	
 }
 #icons {
 	position: absolute;
-	z-index: 10;
+	z-index: 1;
 	top: 20px;
 	left: 20px;
 }
@@ -386,12 +461,11 @@ input,select{vertical-align:middle}
 }
 #watermark {
     position: absolute;
-    display: inline-block;
+    display: none;
     bottom: 50px;
     right: 20px;
     font-weight: bold;
     font-size: 15px;
-    color: white;
 }
 
 /*Demo styles BEGIN*/
@@ -412,9 +486,11 @@ input,select{vertical-align:middle}
 #window4 .wincontent {	width: 255px; height: 248px;	}
 #window5 .wincontent {	width: 640px; height: 480px;	}
 #window6 .wincontent {	width: 830px; height: 635px;	}
-#window7 .wincontent {	width: 325px; height: 325px;	}
+#window7 .wincontent {	width: 358px; height: 365px;	}
 
-
+#window6 > .wincontent iframe {
+    height: calc(100% - 20px);
+}
 
 
 @media screen and (max-width:960px){
@@ -435,4 +511,9 @@ input,select{vertical-align:middle}
 #window3 {    top: 9px;    left: 10px;	}
 #window2 {    left: -118px;	}
 #window1 .wincontent {    width: auto;    height: 300px;	}
+}
+
+#window7 .wincontent {
+min-width: 358px;
+min-height: 365px;
 }
