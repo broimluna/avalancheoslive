@@ -115,13 +115,12 @@ $(document).ready(function(){
 
   var changeBG = function(event) {
     var output = document.getElementById('desktop');
-    output.style.backgroundImage= "url("+URL.createObjectURL(event.target.files[0])+")";
-	
+    output.style.background= "url("+URL.createObjectURL(event.target.files[0])+")";
   };
 
   var resetBG = function(event) {
 	var output = document.getElementById('desktop');
-	output.style.backgroundImage= "";
+	output.style.background= "";
   }
   
   function enableWatermark() {
@@ -148,31 +147,9 @@ $(document).ready(function(){
 	  color.style.filter = "";
 	}
   }
-  function startEnable() {
-	// Get the checkbox
-	var checkBox = document.getElementById("startCheck");
-	// Get the output text
-	const start = document.getElementsByClassName('appsPanel');
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-		$(start).css('opacity', '1');
-	} else {
-		$(start).css('opacity', '');
-	}
-  }
   function localBG() {
-	// Get the checkbox
-	var checkBox = document.getElementById("localbgCheck");
-	// Get the output text
-	var bg = document.getElementById("desktop");
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-	  bg.style.background = "url('system/img/bg.png')";
-	} else {
-	  bg.style.background = "";
-	}
-  }
-  
+	document.getElementById("desktop").style.background = "url('system/img/bg.png')";
+}
 
   function defaultColors() {
 	// Get the checkbox

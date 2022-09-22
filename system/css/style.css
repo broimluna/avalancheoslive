@@ -54,7 +54,7 @@ desktop {
     height: 100%;
     width: 100%;
     background-size: cover !important;
-    background-image: url("https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-CA");
+    background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
     background-color: #3B6EA5;
 	overflow: hidden;
     top: 0;
@@ -235,7 +235,8 @@ desktop {
     font-size: 18px;
   }
   button {
-    border: 2px solid #ffffff;
+    border: 2px solid;
+    border-color: #ffffff;
     border-radius: 5px;
     font-size: 15px;
     background: #CCC;
@@ -387,10 +388,6 @@ desktop {
     transform: scale(1.12);
     height: 0px;
     transition: 0.5s;
-    opacity: 0.001;
-}
-.appsPanel:hover {
-    opacity: 1;
 }
 .appsPanel img {
     transition: 0.5s;

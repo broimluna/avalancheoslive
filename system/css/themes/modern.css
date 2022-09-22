@@ -9,6 +9,6 @@
 .appsPanel {
     opacity: 1 !important;
 }
-#startCheck, #startCheckText, #startCheckBR {
-    display: none;
-}
+.fullSizeWindow {
+    z-index: 1000 !important;    
+    }
