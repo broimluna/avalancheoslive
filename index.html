@@ -67,7 +67,11 @@
 					<input id="inputbtn" type="file" accept="image/*" onchange="changeBG(event)" style="margin: 2px 0px;">
 					<br>
 					<br>
-					<button id="settingsbutton" onclick="resetBG(event)">Reset to default</button><br>
+					<button onclick="localBG()">Enable local wallpaper</button>
+                    <br>
+					<br>
+					<button onclick="resetBG(event)">Reset to default</button>
+					<br>
 					<br>
 					<hr id="settingshr">
 					<h1 id="settingsh1">Colors</h1>
@@ -79,11 +83,7 @@
 					<h1 id="settingsh1">Other</h1>
 					<input type="checkbox" id="waterCheck" onclick="enableWatermark()"><a>Enable the watermark</a></input>
 					<br>
-					<input type="checkbox" id="startCheck" onclick="startEnable()"><a id="startCheckText">Always show apps button</a></input>
-					<br id="startCheckBR">
 					<input type="checkbox" id="colorCheck" onclick="invertColors()"><a>Enable inverted colors</a></input>
-					<br>
-					<input type="checkbox" id="localbgCheck" onclick="localBG()"><a>Enable local wallpaper</a></input>
 				</div>
 
 				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
@@ -95,7 +95,7 @@
 		
 					<hr id="settingshr">
 					<br>
-					<a>Version 3 (Build: 2600.101)</a>
+					<a>Version 3 (Build: 2600.102)</a>
 					<br>
 					<br>
 		
