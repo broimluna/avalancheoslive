@@ -241,7 +241,10 @@ function get_cookie ( cookie_name )
 	return '' ;
 }
 
-
+function startupFunctions() {
+	startTime();
+	set_style_from_cookie()
+}
 
 
   
