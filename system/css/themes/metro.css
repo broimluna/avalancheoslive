@@ -1,4 +1,8 @@
-
+@media screen and (max-width:1024px) {
+    #themesrow, .themestext, .themeshr {
+        display: none !important;
+    }
+  }
   
   /* Context menu */
 .context-menu {
@@ -33,11 +37,6 @@
       font-size: 28px;
       color: white;
   }
-  .appsHtxt::before {
-      content: "Start";
-  }
-  
-  
   #appsmenu {
       position: fixed;
      margin: unset !important;
@@ -52,10 +51,6 @@
   #appsmenu.opened {
       width: 100% !important;
       height: 100% !important;
-  }
-  
-  .currenttheme::before {
-    content: "Metro";
   }
   
   #appicons {

@@ -57,14 +57,14 @@
 					<hr id="settingshr">
 		
 			<div id="Customization" class="tab">
-				<h1 id="settingsh1">Themes</h1>
+				<h1 id="settingsh1" class="themestext">Themes</h1>
 				<div id="themesrow">
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
 					<button id="settingsbutton" onclick="switch_style('theme1');return false;" name="Theme 1" value="Theme 1">Classic</button>
 					<button id="settingsbutton" onclick="switch_style('theme2');return false;" name="Theme 2" value="Theme 2">Metro</button>
 					<button id="settingsbutton" onclick="switch_style('theme3');return false;" name="Theme 3" value="Theme 3">Modern</button>
 				</div>
-					<hr id="settingshr">
+					<hr id="settingshr" class="themeshr">
 					<h1 id="settingsh1">Background</h1>
 					<input id="inputbtn" type="file" accept="image/*" onchange="changeBG(event)" style="margin: 2px 0px;">
 					<br>
@@ -92,6 +92,7 @@
 		
 					<div id="abranding">
 					<img src="system/img/sys_logo.png" height="55" width="105"></img>
+					<br>
 					<a>AvalancheOS</a>
 					</div>
 		
@@ -179,15 +180,15 @@
 </body>
 <script>
 	$('#colorpicker').on('change', function() {
-    var newbgcolor = this.value;
+    var cpcolor = this.value;
 	const winhead = document.getElementsByClassName('windowHeader');
-    $(winhead).css('background', newbgcolor);
-	$('#taskbar').css('background', newbgcolor);
-	$('#appsmenu').css('background', newbgcolor);
-	$('#htmltemp').css('color', newbgcolor);
-	$('#watermark').css('color', newbgcolor);
-	$('#abranding a').css('color', newbgcolor);
-	$('button').css('border-color', newbgcolor);
+    $(winhead).css('background', cpcolor);
+	$('#taskbar').css('background', cpcolor);
+	$('#appsmenu').css('background', cpcolor);
+	$('#htmltemp').css('color', cpcolor);
+	$('#watermark').css('color', cpcolor);
+	$('#abranding a').css('color', cpcolor);
+	$('button').css('border-color', cpcolor);
 
 });
 </script>
