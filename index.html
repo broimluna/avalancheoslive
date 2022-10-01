@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html id="colorop" lang="en">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta http-equiv="cache-control" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="system/js/script.js"></script>	
-	<link rel="stylesheet" type="text/css" href="system/css/style.css" />
-	<link rel="stylesheet" href="system/css/themes/metro.css" media="only screen and (max-width: 1023px)">
-	<link rel="alternate stylesheet 1" type="text/css" title="theme1" href="system/css/themes/classic.css">
-	<link rel="alternate stylesheet 2" type="text/css" title="theme2" href="system/css/themes/metro.css">
-	<link rel="alternate stylesheet 3" type="text/css" title="theme3" href="system/css/themes/modern.css">
+	<script src="system/js/script.js?v=1"></script>	
+	<link rel="stylesheet" type="text/css" href="system/css/style.css?v=1" />
+	<link rel="stylesheet" href="system/css/themes/metro.css?v=1" media="only screen and (max-width: 1023px)">
+	<link rel="alternate stylesheet 1" type="text/css" title="theme1" href="system/css/themes/classic.css?v=1">
+	<link rel="alternate stylesheet 2" type="text/css" title="theme2" href="system/css/themes/metro.css?v=1">
+	<link rel="alternate stylesheet 3" type="text/css" title="theme3" href="system/css/themes/modern.css?v=1">
 	<title>AvalancheOS</title>
 	<audio id="startupsnd" src="system/snd/startup.wav" hidden></audio>
 </head>
@@ -81,13 +82,7 @@
 					<br>
 					<br>
 					<button id="defaultColor" onclick="defaultColors()">Set colors to default</button>
-					<hr id="settingshr">
-					<h1 id="settingsh1">Other</h1>
-					<input type="checkbox" id="waterCheck" onclick="enableWatermark()"><a>Enable the watermark</a></input>
-					<br>
-					<input type="checkbox" id="colorCheck" onclick="invertColors()"><a>Enable inverted colors</a></input>
 				</div>
-
 				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
 		
 					<div id="abranding">
@@ -98,7 +93,7 @@
 		
 					<hr id="settingshr">
 					<br>
-					<a>Version 3 (Build: 2600.102)</a>
+					<a>Version 3 (Build: 2600.103)</a>
 					<br>
 					<br>
 		
@@ -174,8 +169,7 @@
 			</div>
 
 	</div>
-	
-	<a id="watermark">AvalancheOS 3<br>Build 2600</a>
+	<a id="watermark">This build is a preview build and may not be stable.</a>
 
 </body>
 <script>
@@ -189,7 +183,6 @@
 	$('#watermark').css('color', cpcolor);
 	$('#abranding a').css('color', cpcolor);
 	$('button').css('border-color', cpcolor);
-
 });
 </script>
 </html>

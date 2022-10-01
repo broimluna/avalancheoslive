@@ -54,7 +54,8 @@ desktop {
     height: 100%;
     width: 100%;
     background-size: cover !important;
-    background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
+    /*background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");*/
+    background: url("../img/bg.png");
     background-color: #3B6EA5;
 	overflow: hidden;
     top: 0;
@@ -455,13 +456,23 @@ border-radius: 4px;
 #icons img {
     padding: 2px;
 }
-#watermark {
+#watermarkold {
     position: absolute;
     display: none;
     bottom: 50px;
     right: 20px;
     font-weight: bold;
     font-size: 15px;
+}
+
+#watermark {
+    position: absolute;
+    display: inline-block;
+    bottom: 50px;
+    right: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff59;
 }
 
 /*Demo styles BEGIN*/

@@ -135,18 +135,6 @@ $(document).ready(function(){
 	  text.style.display = "none";
 	}
   }
-  function invertColors() {
-	// Get the checkbox
-	var checkBox = document.getElementById("colorCheck");
-	// Get the output text
-	var color = document.getElementById("colorop");
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-	  color.style.filter = "invert(1)";
-	} else {
-	  color.style.filter = "";
-	}
-  }
   function localBG() {
 	document.getElementById("desktop").style.background = "url('system/img/bg.png')";
 }
