@@ -8,13 +8,13 @@
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="system/js/script.js?v=1"></script>	
-	<link rel="stylesheet" type="text/css" href="system/css/style.css?v=1" />
+	<script src="system/js/script.js?v=2"></script>	
+	<link rel="stylesheet" type="text/css" href="system/css/style.css?v=2" />
 	<link rel="stylesheet" href="system/css/themes/metro.css?v=1" media="only screen and (max-width: 1023px)">
 	<link rel="alternate stylesheet 1" type="text/css" title="theme1" href="system/css/themes/classic.css?v=1">
 	<link rel="alternate stylesheet 2" type="text/css" title="theme2" href="system/css/themes/metro.css?v=1">
 	<link rel="alternate stylesheet 3" type="text/css" title="theme3" href="system/css/themes/modern.css?v=1">
-	<title>AvalancheOS</title>
+	<title>Avalanche Web Desktop</title>
 	<audio id="startupsnd" src="system/snd/startup.wav" hidden></audio>
 </head>
 
@@ -86,17 +86,17 @@
 				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
 		
 					<div id="abranding">
-					<img src="system/img/sys_logo.png" height="55" width="105"></img>
+					<img src="system/img/sys_logo.png" height="64" width="64"></img>
 					<br>
-					<a>AvalancheOS</a>
+					<a>Avalanche</a>
 					</div>
 		
 					<hr id="settingshr">
+					<a>Avalanche Web Desktop</a>
 					<br>
-					<a>Version 3 (Build: 2600.103)</a>
 					<br>
-					<br>
-		
+					<a>Version 22M10 (Build: 3600)</a>
+					<br>		
 					<hr id="settingshr">
 					<a>broimluna - 2022</a>
 					<br>
@@ -112,8 +112,9 @@
 			
 		
 		<div id="taskbar">
-			<a class="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='44' height='28'></a>
+			<a id="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='28' height='28'></a>
 			<a id="time"></a>
+			<a id="date"></a>
 		</div>
 		
 		<div id="icons">

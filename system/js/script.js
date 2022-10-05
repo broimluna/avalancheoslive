@@ -8,7 +8,7 @@ id;
 
 //jQuery
 setTimeout(function(){
-    $("#startup").fadeOut(400);
+    $("#startup").fadeOut(200);
 	document.getElementById("startupsnd").play(); 
 }, 2000)
   
@@ -22,9 +22,6 @@ function startTime(){
     var date = new Date();
     var h = date.getHours(); 
     var m = date.getMinutes(); 
-	var d = date.getDate();
-	var mo = date.getMonth() + 1;
-	var y = date.getFullYear();
    // var s = date.getSeconds(); 
     var session = "AM";
     
@@ -40,8 +37,8 @@ function startTime(){
     h = (h < 10) ? "0" + h : h;
     m = (m < 10) ? "0" + m : m;
     //s = (s < 10) ? "0" + s : s;
-    
-    var time = y + "-" + mo + "-" + d + " - " + h + ":" + m + " " + session;
+
+    var time = h + ":" + m + " " + session;
     document.getElementById("time").innerText = time;
     document.getElementById("time").textContent = time;
     setTimeout(startTime, 1000);
@@ -50,8 +47,23 @@ function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
+function startDate(){
+    var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth() + 1;
+	var y = date.getFullYear();
+
+	d = (d < 10) ? "0" + d : d;
+    m = (m < 10) ? "0" + m : m;
+    
+    var date = y + "-" + m + "-" + d
+    document.getElementById("date").innerText = date;
+    document.getElementById("date").textContent = date;
+    setTimeout(startDate, 1000);
+}
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
+	document.getElementById("appsPanel").classList.toggle("opened");
 }
 document.oncontextmenu = rightClick;
   
@@ -121,19 +133,6 @@ $(document).ready(function(){
   var resetBG = function(event) {
 	var output = document.getElementById('desktop');
 	output.style.background= "";
-  }
-  
-  function enableWatermark() {
-	// Get the checkbox
-	var checkBox = document.getElementById("waterCheck");
-	// Get the output text
-	var text = document.getElementById("watermark");
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-	  text.style.display = "inline-block";
-	} else {
-	  text.style.display = "none";
-	}
   }
   function localBG() {
 	document.getElementById("desktop").style.background = "url('system/img/bg.png')";
@@ -231,7 +230,8 @@ function get_cookie ( cookie_name )
 
 function startupFunctions() {
 	startTime();
-	set_style_from_cookie()
+	startDate();
+	set_style_from_cookie();
 }
 
 

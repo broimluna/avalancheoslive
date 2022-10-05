@@ -54,8 +54,7 @@ desktop {
     height: 100%;
     width: 100%;
     background-size: cover !important;
-    /*background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");*/
-    background: url("../img/bg.png");
+    background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
     background-color: #3B6EA5;
 	overflow: hidden;
     top: 0;
@@ -66,7 +65,16 @@ desktop {
 }
 #time { 
     position: absolute;           
-    top: 6px;
+    top: 0;
+    right: 2px;
+    color: white;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    text-align: right;
+    font-size: 15px;
+}
+#date { 
+    position: absolute;           
+    top: 16px;
     right: 2px;
     color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
@@ -376,7 +384,7 @@ desktop {
     transform: scale(1);
     transition: 0.5s;
 }
-.appsPanel {
+#appsPanel {
     display: inline-block;
     border: transparent;
     position: relative;
@@ -388,16 +396,22 @@ desktop {
     transform: scale(1.12);
     height: 0px;
     transition: 0.5s;
+    border-radius: 0px;
 }
-.appsPanel img {
+#appsPanel.opened {
+    background: #2e2e2e;
+    border-radius: 4px;
+}
+#appsPanel img {
     transition: 0.5s;
     margin:0px 0px;
 }
-.appsPanel img:hover {
+#appsPanel img:hover {
 background: rgba(0, 0, 0, 0.5);
 transition: 0.5s;
 border-radius: 4px;
 }
+
 .taskbarPanel:hover{
     background: rgba(0, 0, 0, 0.3);
     transition: 0.5s;
@@ -524,3 +538,15 @@ border-radius: 4px;
 min-width: 358px;
 min-height: 365px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
