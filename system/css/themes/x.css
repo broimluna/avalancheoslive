@@ -1,0 +1,50 @@
+#appsmenu {
+    background: #d6d6d69f;
+    bottom: 62px;
+    border-radius: 16px;
+    left: 10px;
+}
+
+#watermark {
+    color: #ffffff59 !important;
+    font-size: 18px;
+}
+
+.context-menu {
+    background: #d6d6d69f;
+}
+
+a, h1, p, strong, span, ul, li, #appicons a, #appsHtxt, #icons, #time, #date {
+    color: black !important;
+}
+.winmaximize > span {
+    border: 2px solid black;
+    border-top: 3px solid black;
+}
+.winminimize > span {
+    border-bottom: 3px solid black;
+}
+#taskbar {
+    background: #d6d6d69f;
+    bottom: 10px;
+    width: 99%;
+    height: 42px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 6px;
+}
+.window {
+    background: #d6d6d660;
+}
+#appsPanel {
+    left: 0;
+    position: absolute;
+}
+
+#icons {
+    display: none;
+}
+
+#centrdAppsChk, .centrdAppsTxt, #showContainedChk, .showContainedTxt, .tskbrtab {
+    display: none;
+}

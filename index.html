@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="colorop" lang="en">
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta http-equiv="cache-control" content="no-cache">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="system/js/script.js?v=2"></script>	
-	<link rel="stylesheet" type="text/css" href="system/css/style.css?v=2" />
-	<link rel="stylesheet" href="system/css/themes/metro.css?v=1" media="only screen and (max-width: 1023px)">
-	<link rel="alternate stylesheet 1" type="text/css" title="theme1" href="system/css/themes/classic.css?v=1">
-	<link rel="alternate stylesheet 2" type="text/css" title="theme2" href="system/css/themes/metro.css?v=1">
-	<link rel="alternate stylesheet 3" type="text/css" title="theme3" href="system/css/themes/modern.css?v=1">
-	<title>Avalanche Web Desktop</title>
+	<script src="system/js/script.js"></script>	
+	<link rel="stylesheet" type="text/css" href="system/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="system/css/themes/dev.css" />
+	<link rel="stylesheet" href="system/css/themes/metro.css" media="only screen and (max-width: 1023px)">
+	<link rel="alternate stylesheet 1" type="text/css" title="theme1" href="system/css/themes/x.css">
+	<link rel="alternate stylesheet 2" type="text/css" title="theme2" href="system/css/themes/metro.css">
+	<link rel="alternate stylesheet 3" type="text/css" title="theme3" href="system/css/themes/classic.css">
+	<title>AvalancheOS</title>
 	<audio id="startupsnd" src="system/snd/startup.wav" hidden></audio>
 </head>
 
@@ -22,35 +22,35 @@
 
 	<desktop id="desktop">
 		
-		<div class="window closed" data-html="true" icon="<img src='system/img/icons/paint-32x32.png' width='25' height='25'>" data-title="Paint">
+		<div class="window closed" data-html="true" icon="<img src='system/img/icons/paint-32x32.png' width='32' height='32'>" data-title="Paint">
 			<iframe width="100%" height="100%" src="apps/jspaint/index.html"></iframe>
 			</div>
 	
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/notepad-32x32.png' width='25' height='25'>" data-title="Notepad">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/notepad-32x32.png' width='32' height='32'>" data-title="Notepad">
 			<iframe width="100%" height="100%" src="apps/notepad/index.html"></iframe>
 			</div>
 	
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/minesweeper-32x32.png' width='25' height='25'>" data-title="Minesweeper">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/minesweeper-32x32.png' width='32' height='32'>" data-title="Minesweeper">
 				<iframe width="100%" height="100%" src="apps/minesweeper/index.html"></iframe>
 			</div>
 										
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/cal-32x32.png' width='25' height='25'>" data-title="Calendar">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/cal-32x32.png' width='32' height='32'>" data-title="Calendar">
 				<iframe width="100%" height="100%" src="apps/calendar/index.html"></iframe>
 			</div>
 	
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/calc-32x32.png' width='25' height='25'>" data-title="Calculator">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/calc-32x32.png' width='32' height='32'>" data-title="Calculator">
 				<iframe width="100%" height="100%" src="apps/calc/index.html"></iframe>
 			</div>
 	
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/bronze-32x32.png' width='25' height='25'>" data-title="Bronze Browser">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/bronze-32x32.png' width='32' height='32'>" data-title="Bronze Browser">
 				<iframe width="100%" height="100%" src="apps/bronze/index.html"></iframe>
 			</div>
 	
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/hyperos-32x32.png' width='25' height='25'>" data-title="HyperOS">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/hyperos-32x32.png' width='32' height='32'>" data-title="HyperOS">
 				<a target="hos" href="apps/hyperos/index.html">Home</a>
 				<iframe name="hos" width="100%" height="100%" src="apps/hyperos/index.html"></iframe>
 			</div>
-			<div class="window closed" data-html="true" icon="<img src='system/img/icons/settings-32x32.png' width='25' height='25'>" data-title="Control Panel">
+			<div class="window closed" data-html="true" icon="<img src='system/img/icons/settings-32x32.png' width='32' height='32'>" data-title="Control Panel">
 				<div id="tabsettings">
 					<button id="settingsbutton" onclick="openTab('Customization')">Customization</button>
 					<button id="settingsbutton" onclick="openTab('About')">About</button>
@@ -61,13 +61,13 @@
 				<h1 id="settingsh1" class="themestext">Themes</h1>
 				<div id="themesrow">
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
-					<button id="settingsbutton" onclick="switch_style('theme1');return false;" name="Theme 1" value="Theme 1">Classic</button>
+					<button id="settingsbutton" onclick="switch_style('theme3');return false;" name="Theme 3" value="Theme 3">Classic</button>
 					<button id="settingsbutton" onclick="switch_style('theme2');return false;" name="Theme 2" value="Theme 2">Metro</button>
-					<button id="settingsbutton" onclick="switch_style('theme3');return false;" name="Theme 3" value="Theme 3">Modern</button>
+					<!--<button id="settingsbutton" onclick="switch_style('theme1');return false;" name="Theme 1" value="Theme 1">AvalancheOS X</button>-->
 				</div>
 					<hr id="settingshr" class="themeshr">
 					<h1 id="settingsh1">Background</h1>
-					<input id="inputbtn" type="file" accept="image/*" onchange="changeBG(event)" style="margin: 2px 0px;">
+					<input id="inputbtn" type="file" accept="image/*" onchange="changeBG(event)" class="wppicker">
 					<br>
 					<br>
 					<button onclick="localBG()">Enable local wallpaper</button>
@@ -82,21 +82,27 @@
 					<br>
 					<br>
 					<button id="defaultColor" onclick="defaultColors()">Set colors to default</button>
+					<hr id="settingshr">
+					<h1 id="settingsh1">Other</h1>
+					<input type="checkbox" id="waterCheck" onclick="enableWatermark()"><a>Enable the watermark</a></input>
+					<br>
+					<input type="checkbox" id="colorCheck" onclick="invertColors()"><a>Enable inverted colors</a></input>
 				</div>
+
 				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
 		
 					<div id="abranding">
-					<img src="system/img/sys_logo.png" height="64" width="64"></img>
+					<img src="system/img/sys_logo.png" height="55" width="105"></img>
 					<br>
-					<a>Avalanche</a>
+					<a>AvalancheOS</a>
 					</div>
 		
 					<hr id="settingshr">
-					<a>Avalanche Web Desktop</a>
+					<br>
+					<a>Version 4 (Build: 4000.101)</a>
 					<br>
 					<br>
-					<a>Version 22M10 (Build: 3600)</a>
-					<br>		
+		
 					<hr id="settingshr">
 					<a>broimluna - 2022</a>
 					<br>
@@ -107,12 +113,11 @@
 					<a class="btmbtninvert" target="_blank" href="https://github.com/broimluna"><img src="system/img/icons/github.png" height="32" width="32" title="Follow my GitHub!"></a>
 				  </div>
 			</div>
-
 			
 			
 		
 		<div id="taskbar">
-			<a id="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='28' height='28'></a>
+			<a id="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='62' height='36'></a>
 			<a id="time"></a>
 			<a id="date"></a>
 		</div>
@@ -170,7 +175,8 @@
 			</div>
 
 	</div>
-	<a id="watermark">This build is a preview build and may not be stable.</a>
+	
+	<a id="watermark">AvalancheOS 4<br>Build 4000</a>
 
 </body>
 <script>
@@ -184,6 +190,8 @@
 	$('#watermark').css('color', cpcolor);
 	$('#abranding a').css('color', cpcolor);
 	$('button').css('border-color', cpcolor);
+
+
 });
 </script>
 </html>

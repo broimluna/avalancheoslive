@@ -1,5 +1,5 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
-body{line-height:1;	font-family: Arial, Helvetica, sans-serif;color:white;}
+body{line-height:1;	font-family: Arial, Helvetica, sans-serif;color:black;}
 h1 {font-size: 1.5em;margin-bottom: 10px;}
 p{font-size: 15px;line-height: 1.3em;margin-bottom: 10px;}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
@@ -33,22 +33,100 @@ input,select{vertical-align:middle}
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
-  #appsHtxt {
+
+[type=checkbox] {
+    width: 2rem;
+    height: 2rem;
+    color: black;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    outline: 0;
+    flex-grow: 0;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    transition: background 300ms;
+    cursor: pointer;
+  }
+  
+  
+  /* Pseudo element for check styling */
+  
+  [type=checkbox]::before {
+    content: "";
+    color: transparent;
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    box-shadow: inset 0 0 0 1px #CCD3D8;
+  }
+  
+  
+  /* Checked */
+  
+  [type=checkbox]:checked {
+    background-color: currentcolor;
+  }
+  
+  [type=checkbox]:checked::before {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+  }
+  
+  
+  /* Disabled */
+  
+  [type=checkbox]:disabled {
+    background-color: #CCD3D8;
+    opacity: 0.84;
+    cursor: not-allowed;
+  }
+  
+  
+  /* IE */
+  
+  [type=checkbox]::-ms-check {
+    content: "";
+    color: transparent;
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    box-shadow: inset 0 0 0 1px #CCD3D8;
+  }
+  
+  [type=checkbox]:checked::-ms-check {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+  }
+
+
+#appsHtxt {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
     margin: 12px 0px;
 }
-
+#appsHtxt.dark {
+    color: black;
+}
 #colorop {
     transition: 0.5s;
 }
 
-a, h1, p, ul, input {
+a, h1, p, ul, input, span {
     color: white;
 }
 
-desktop {
+#desktop {
 	font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     height: 100%;
@@ -63,33 +141,38 @@ desktop {
     right: 0;
     transition: 0.2s;
 }
+
+
 #time { 
     position: absolute;           
-    top: 0;
-    right: 2px;
-    color: white;
+    top: 2px;
+    right: 21px;
     font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: right;
     font-size: 15px;
+    transition: 0.2s;
 }
 #date { 
     position: absolute;           
-    top: 16px;
+    top: 21px;
     right: 2px;
-    color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: right;
     font-size: 15px;
+    transition: 0.2s;
+}
+
+#time.dark, #date.dark {
+    color: white;
 }
 
 #appsmenu {
     position: fixed;
-    /* margin: 0 auto; */
     width: 260px;
     height: 0px;
     left: 0;
     right: 0;
-    bottom: 33px;
+    bottom: 43px;
     z-index: 2000;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -99,6 +182,10 @@ desktop {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-top-right-radius: 16px;
+}
+
+#appsmenu.dark {
+    background: #0000009f;
 }
 
 #appsmenu.opened {
@@ -115,22 +202,26 @@ desktop {
     display:block; 
     padding:0; 
     list-style:none;
+    transition: 0.2s;
 }
 #appicons a {
     border: solid 1px transparent;
     display: block; 
     padding:3px; 
     margin:3px;
-    color: white;
     text-decoration: none; 
     min-width:220px;
     cursor: pointer;
     text-align: left;
+    transition: 0.2s;
+}
+#appicons.dark {
+    color: white !important;
 }
 #appicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
-    background: #0000007a;
+    background: #00000050;
     border: 1px solid white;
     transition: 0.1s;
 }
@@ -169,17 +260,49 @@ desktop {
 }
 
 
+.wppicker::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .wppicker::before {
+    font-family: Arial, Helvetica, sans-serif;
+    content: 'Select your wallpaper';
+    display: inline-block;
+    background: #CCC;
+    font-size: 14px;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-radius: 5px;
+    height: 20px;
+    margin: 2px 2px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black !important;
+    
+
+  }
+  .wppicker:hover::before {
+    border-color: #ffffff;
+  }
+  .wppicker:active::before {
+    background: #CCC;
+  }
+
+  .wppicker {
+    color: transparent;
+  }
+
+
 
 .context-menu {
     position: absolute;
     text-align: center;
     background: transparent;
     border: 3px solid transparent;
-    background: transparent;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    transition: 0.2s;
 }
 
 .context-menu ul {
@@ -214,9 +337,9 @@ desktop {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: transparent;
 }
-.btmbtninvert {
+/*.btmbtninvert {
     filter: invert(1);
-}
+}*/
 #startup {
     position: fixed;
     display: block; 
@@ -246,7 +369,7 @@ desktop {
     border: 2px solid;
     border-color: #ffffff;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 14px;
     background: #CCC;
     font-weight: bold;
     cursor: pointer;
@@ -291,10 +414,13 @@ desktop {
       top: 0px !important;
       height: 100% !important;
       width: 100% !important;    
-      z-index: 9999999 !important;
 }
 .fullSizeWindow .ui-resizable-handle {
 	display: none;
+}
+
+.fullSizeWindow .windowHeader > span {
+    border-radius: 0px;
 }
 
 .windowHeader {
@@ -376,7 +502,7 @@ desktop {
     border-radius: 5px;
     line-height: 12px;
     font-size: 15px;
-    margin: 1px 4px;
+    margin: 2px 4px;
     background: transparent;
     font-weight: bold;
     cursor: pointer;
@@ -396,7 +522,8 @@ desktop {
     transform: scale(1.12);
     height: 0px;
     transition: 0.5s;
-    border-radius: 0px;
+    border-radius: 4px;
+
 }
 #appsPanel.opened {
     background: #2e2e2e;
@@ -421,6 +548,10 @@ border-radius: 4px;
     background-color: #2e2e2e;
     transform: scale(1.14);
 }
+.taskbarPanel.activeTab.dark {
+    background-color: #ffffff;
+    transform: scale(1.14);
+}
 .taskbarPanel.activeTab:hover {
     background: rgba(0, 0, 0, 0.3);
 }
@@ -433,23 +564,33 @@ border-radius: 4px;
 }
 #taskbar {
 	position: absolute;
-	height: 32px;
+	height: 42px;
 	border-top: 1px solid transparent;
 	bottom: 0;
+	width: 100%;
+	border-radius: 0px;
+	margin: 0 auto;
 	left: 0;
-    z-index: 2000;
+	z-index: 2000;
 	right: 0;
 	background: transparent;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-	
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	transition: 0.5s;
+}
+#taskbar.dark {
+    background: #0000009f;
 }
 #icons {
 	position: absolute;
 	z-index: 1;
 	top: 20px;
 	left: 20px;
+    transition: 0.2s;
+}
+#icons.dark {
+    color: white; 
 }
 #icons a {
     display: table;
@@ -481,12 +622,11 @@ border-radius: 4px;
 
 #watermark {
     position: absolute;
-    display: inline-block;
-    bottom: 50px;
+    display: none;
+    bottom: 65px;
     right: 20px;
     font-weight: bold;
-    font-size: 18px;
-    color: #ffffff59;
+    font-size: 15px;
 }
 
 /*Demo styles BEGIN*/
@@ -533,20 +673,19 @@ border-radius: 4px;
 #window2 {    left: -118px;	}
 #window1 .wincontent {    width: auto;    height: 300px;	}
 }
-
+#window2 .wincontent {
+    min-width: 340px;
+    min-height: 350px;
+    }
+#window3 .wincontent {
+min-width: 430px;
+min-height: 486px;
+}
+#window4 .wincontent {
+min-width: 340px;
+min-height: 335px;  
+}
 #window7 .wincontent {
 min-width: 358px;
 min-height: 365px;
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,7 +8,7 @@ id;
 
 //jQuery
 setTimeout(function(){
-    $("#startup").fadeOut(200);
+    $("#startup").fadeOut(400);
 	document.getElementById("startupsnd").play(); 
 }, 2000)
   
@@ -23,22 +23,22 @@ function startTime(){
     var h = date.getHours(); 
     var m = date.getMinutes(); 
    // var s = date.getSeconds(); 
-    var session = "AM";
+    //var session = "AM";
     
     if(h == 0){
         h = 12;
     }
     
-    if(h > 12){
-        h = h - 12;
-        session = "PM";
-    }
+    //if(h > 12){
+      //  h = h - 12;
+        //session = "PM";
+    //}
     
     h = (h < 10) ? "0" + h : h;
     m = (m < 10) ? "0" + m : m;
     //s = (s < 10) ? "0" + s : s;
 
-    var time = h + ":" + m + " " + session;
+    var time = h + ":" + m + " " //+ session;
     document.getElementById("time").innerText = time;
     document.getElementById("time").textContent = time;
     setTimeout(startTime, 1000);
@@ -61,9 +61,9 @@ function startDate(){
     document.getElementById("date").textContent = date;
     setTimeout(startDate, 1000);
 }
+
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
-	document.getElementById("appsPanel").classList.toggle("opened");
 }
 document.oncontextmenu = rightClick;
   
@@ -133,6 +133,31 @@ $(document).ready(function(){
   var resetBG = function(event) {
 	var output = document.getElementById('desktop');
 	output.style.background= "";
+  }
+  
+  function enableWatermark() {
+	// Get the checkbox
+	var checkBox = document.getElementById("waterCheck");
+	// Get the output text
+	var text = document.getElementById("watermark");
+	// If the checkbox is checked, display the output text
+	if (checkBox.checked == true){
+	  text.style.display = "inline-block";
+	} else {
+	  text.style.display = "none";
+	}
+  }
+  function invertColors() {
+	// Get the checkbox
+	var checkBox = document.getElementById("colorCheck");
+	// Get the output text
+	var color = document.getElementById("colorop");
+	// If the checkbox is checked, display the output text
+	if (checkBox.checked == true){
+	  color.style.filter = "invert(1)";
+	} else {
+	  color.style.filter = "";
+	}
   }
   function localBG() {
 	document.getElementById("desktop").style.background = "url('system/img/bg.png')";
@@ -231,7 +256,7 @@ function get_cookie ( cookie_name )
 function startupFunctions() {
 	startTime();
 	startDate();
-	set_style_from_cookie();
+	set_style_from_cookie()
 }
 
 

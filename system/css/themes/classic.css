@@ -1,4 +1,4 @@
-.appsHtxt {
+#appsHtxt {
     color: white;
 }
 
@@ -111,11 +111,14 @@ h1 {
     position: absolute;
 	border-top: 2px solid #2e2e2e !important;
 	bottom: 0;
-    height: 32px;
+    height: 42px;
 	left: 0;
 	right: 0;
+    margin: none;
+    width: 100%;
 	background: #181818ab !important;
 	z-index: 99998;
+    border-radius: 0px;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
 }
@@ -246,19 +249,31 @@ left: 10px;
     
   }
 
-  .task.activeTab {
-    transform: scale(1.45);
-    background-color: #2e2e2e;
-}
-
-.task:hover {
-    background: rgba(0, 0, 0, 0.3);
-    color: #FFF;
-}
-
 #icons a {
-    transition: 0s;
+    transition: 0s !important;
+}
+#icons a:hover {
+    transition: 0s !important;
 }
 .fullSizeWindow {
 z-index: 1000 !important;    
+}
+
+#date, #time {
+    color: white !important;
+}
+
+#appsPanel {
+    left: unset;
+    position: unset;
+}
+
+#centrdAppsChk, .centrdAppsTxt, #showContainedChk, .showContainedTxt, .tskbrtab {
+    display: none;
+}
+#icons {
+    display: block;
+}
+#desktop {
+    background: url("../../img/bg.png");
 }
