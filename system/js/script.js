@@ -1,3 +1,28 @@
+//Apps
+
+//Calculator 
+function dis(val)
+         {
+             document.getElementById("result").value+=val
+         }
+           
+         //function that evaluates the digit and return result
+         function solve()
+         {
+             let x = document.getElementById("result").value
+             let y = eval(x)
+             document.getElementById("result").value = y
+         }
+           
+         //function that clear the display
+         function clr()
+         {
+             document.getElementById("result").value = ""
+         }
+// Next App
+
+
+
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -6,9 +31,81 @@ windowLeftPos = new Array,
 panel,
 id;
 
+// Flags URL begins here
+
+	// Loads the flag into RAM.
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	
+		// Loads startup value into RAM.
+	function getStartValByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	
+	var paRameter = getParameterByName('flag');
+	var startup = getStartValByName('startup');
+
+ 
+ // Enables flag when page loads
+	 $(document).ready(function() {
+	
+// CSSDev: enables css dev theme
+		if (paRameter == 'ThisIsTheSecretDevMode') {
+		   $("<style type='text/css'> #watermark { display: inline-block !important; } #startup {  display:none !important; } #desktop { background: url('https://r4.wallpaperflare.com/wallpaper/302/856/30/artwork-windows-7-sea-fish-wallpaper-d9b0088de1fafd6be647480f70e196cd.jpg');</style>").appendTo("#desktop");
+		} 
+
+		if (paRameter == 'NoStartup') {
+			$("<style type='text/css'> #startup {  display:none !important; }</style>").appendTo("#desktop");
+		  }
+
+		  if (paRameter == 'DockedTB') {
+			$("<style type='text/css'> #taskbar {  width:40% !important; } #appsPanel {  left:0 !important; position:unset !important; } #appsmenu {  margin: 0 auto !important; }</style>").appendTo("#desktop");
+		  }
+		  if (paRameter == 'EnableDisabledThemedFeatures') {
+			$("<style type='text/css'> #centrdAppsChk, .centrdAppsTxt, #showContainedChk, .showContainedTxt, .tskbrtab, #dmToggle { display: revert !important; }</style>").appendTo("#desktop");
+		  }
+
+		  if (startup == 'no') {
+			$('#startup').css('display','none');
+		} 
+
+		
+		
+		// No code inserted, does nothing.
+		else {
+		}
+	});
+	var search_htm_url = "index.html?startup=no&?flag=";
+	function enableFlag() {
+		if ((document.searchpage.keyword.value.length == 0)
+		|| (document.searchpage.keyword.value == " ")) {
+		alert("Please enter a flag!");
+		} else {
+		sel = document.searchpage.and_or.selectedIndex;
+		location.href = search_htm_url
+		+ escape(document.searchpage.keyword.value)
+		
+		}
+		return false;
+		}
+// Flag code ends here
+
 //jQuery
 setTimeout(function(){
-    $("#startup").fadeOut(400);
+    $("#startup").fadeOut(200);
 	document.getElementById("startupsnd").play(); 
 }, 2000)
   
@@ -61,7 +158,6 @@ function startDate(){
     document.getElementById("date").textContent = date;
     setTimeout(startDate, 1000);
 }
-
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
 }
@@ -115,6 +211,14 @@ x[i].style.display = "none";
 }
 document.getElementById(tabName).style.display = "block";
 }
+function openTabb(tabName) {
+	var i;
+	var x = document.getElementsByClassName("tabb");
+	for (i = 0; i < x.length; i++) {
+	x[i].style.display = "none";
+	}
+	document.getElementById(tabName).style.display = "block";
+	}
 
 $(document).ready(function(){
 	$("#appsmenu").click(function(){
@@ -124,44 +228,21 @@ $(document).ready(function(){
   
 	});
   });			
+  
 
   var changeBG = function(event) {
-    var output = document.getElementById('desktop');
+    var output = document.getElementsByClassName('desktop')[0];
     output.style.background= "url("+URL.createObjectURL(event.target.files[0])+")";
   };
 
   var resetBG = function(event) {
-	var output = document.getElementById('desktop');
+	var output = document.getElementsByClassName('desktop')[0];
 	output.style.background= "";
   }
-  
-  function enableWatermark() {
-	// Get the checkbox
-	var checkBox = document.getElementById("waterCheck");
-	// Get the output text
-	var text = document.getElementById("watermark");
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-	  text.style.display = "inline-block";
-	} else {
-	  text.style.display = "none";
-	}
-  }
-  function invertColors() {
-	// Get the checkbox
-	var checkBox = document.getElementById("colorCheck");
-	// Get the output text
-	var color = document.getElementById("colorop");
-	// If the checkbox is checked, display the output text
-	if (checkBox.checked == true){
-	  color.style.filter = "invert(1)";
-	} else {
-	  color.style.filter = "";
-	}
-  }
   function localBG() {
-	document.getElementById("desktop").style.background = "url('system/img/bg.png')";
+	document.getElementsByClassName('desktop')[0].style.background = "url('https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA')";
 }
+
 
   function defaultColors() {
 	// Get the checkbox
@@ -172,27 +253,63 @@ $(document).ready(function(){
 	var htmltemp = document.getElementById("htmltemp");
 	// If the checkbox is checked, display the output text
 	if (checkBox.checked == true){
-	  taskbar.style.background = "";
-	  appsmenu.style.background = "";
-	  htmltemp.style.color = "";
+		$('#taskbar').css('background', '');
+		$('#appsmenu').css('background', '');
+		$('#htmltemp').css('color', '');
+		$('#watermark').css('color', '');
+		$('#abranding a').css('color', '');
+		$('button').css('border-color', '');
+		$('#button').css('border-color', '');
+		$('.checkBox').css('color', '');
+		$('.calcbutton').css('border-color', '');
+		$('.calctext').css('border-color', '');
+		$('.textinput').css('border-color', '');
 	  
 	} else {
-	  taskbar.style.background = "";
-	  appsmenu.style.background = "";
-	  htmltemp.style.color = "";
+		$('#taskbar').css('background', '');
+		$('#appsmenu').css('background', '');
+		$('#htmltemp').css('color', '');
+		$('#watermark').css('color', '');
+		$('#abranding a').css('color', '');
+		$('button').css('border-color', '');
+		$('#button').css('border-color', '');
+		$('.checkBox').css('color', '');
+		$('.calcbutton').css('border-color', '');
+		$('.calctext').css('border-color', '');
+		$('.textinput').css('border-color', '');
 	}
 	const winhead = document.getElementsByClassName('windowHeader');
     $(winhead).css('background', '');
-	$("#abranding a").css('color', '');
-	$("#watermark").css('color', '');
-	$('button').css('border-color', '');
   }
 
+  function centeredApps() {
+	// Get the checkbox
+	var checkBox = document.getElementById("centrdAppsChk");
+	// Get the output text
+	var appsBtn = document.getElementById("appsPanel");
+	var appsmenu = document.getElementById("appsmenu");
+	// If the checkbox is checked, display the output text
+	if (checkBox.checked == true){
+	  appsBtn.style.left = "unset";
+	  appsBtn.style.position = "unset";
+	  appsmenu.style.margin = "0 auto"
+	  appsmenu.style.left = "0"
+	  
+	} else {
+		appsBtn.style.left = "";
+		appsBtn.style.position = "";
+		appsmenu.style.margin = ""
+		appsmenu.style.left = ""
+	}
+ 
+}
 
 
+
+//THEMES COOKIES
 // *** TO BE CUSTOMISED ***
 
-var style_cookie_name = "ostheme" ;
+var style_cookie_name = "xostheme" ;
 var style_cookie_duration = 30 ;
 var style_domain = "broimluna.github.io" ;
 
@@ -214,18 +331,18 @@ function switch_style ( css_title )
         link_tag[i].disabled = false ;
       }
     }
-    set_cookie( style_cookie_name, css_title,
+    set_cookie_style( style_cookie_name, css_title,
       style_cookie_duration, style_domain );
   }
 }
 function set_style_from_cookie()
 {
-  var css_title = get_cookie( style_cookie_name );
+  var css_title = get_cookie_style( style_cookie_name );
   if (css_title.length) {
     switch_style( css_title );
   }
 }
-function set_cookie ( cookie_name, cookie_value,
+function set_cookie_style ( cookie_name, cookie_value,
     lifespan_in_days, valid_domain )
 {
     // https://www.thesitewizard.com/javascripts/cookies.shtml
@@ -237,7 +354,7 @@ function set_cookie ( cookie_name, cookie_value,
                        24 * lifespan_in_days +
                        "; path=/" + domain_string ;
 }
-function get_cookie ( cookie_name )
+function get_cookie_style ( cookie_name )
 {
     // https://www.thesitewizard.com/javascripts/cookies.shtml
 	var cookie_string = document.cookie ;
@@ -253,10 +370,16 @@ function get_cookie ( cookie_name )
 	return '' ;
 }
 
+
+// Cookies 
+
+
+
+
 function startupFunctions() {
 	startTime();
 	startDate();
-	set_style_from_cookie()
+	set_style_from_cookie();
 }
 
 

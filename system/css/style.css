@@ -14,6 +14,17 @@ abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
 table{border-collapse:collapse;border-spacing:0}
 hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
 input,select{vertical-align:middle}
+
+
+@media screen and (max-width:769px) {
+    #themesrow, .themestext, .themeshr, #app6 {
+        display: none !important;
+    }
+    #taskbar {
+        bottom: 0px !important;
+    }
+  }
+
 ::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.3);
@@ -33,6 +44,8 @@ input,select{vertical-align:middle}
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
+
+
 
 [type=checkbox] {
     width: 2rem;
@@ -111,20 +124,22 @@ input,select{vertical-align:middle}
 
 #appsHtxt {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     text-align: center;
     margin: 12px 0px;
 }
 #appsHtxt.dark {
-    color: black;
+    color: white;
 }
 #colorop {
     transition: 0.5s;
 }
 
-a, h1, p, ul, input, span {
-    color: white;
-}
+/*a, h1, p, ul, input {
+    color: black;
+}*/
+
+
 
 #desktop {
 	font-family: Arial, Helvetica, sans-serif;
@@ -132,7 +147,7 @@ a, h1, p, ul, input, span {
     height: 100%;
     width: 100%;
     background-size: cover !important;
-    background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
+    background: url("../img/bg.png");
     background-color: #3B6EA5;
 	overflow: hidden;
     top: 0;
@@ -146,7 +161,8 @@ a, h1, p, ul, input, span {
 #time { 
     position: absolute;           
     top: 2px;
-    right: 21px;
+    right: 2px;
+    color: black;
     font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: right;
     font-size: 15px;
@@ -156,6 +172,7 @@ a, h1, p, ul, input, span {
     position: absolute;           
     top: 21px;
     right: 2px;
+    color: black;
     font-family: 'Helvetica', 'Arial', sans-serif;
     text-align: right;
     font-size: 15px;
@@ -170,18 +187,18 @@ a, h1, p, ul, input, span {
     position: fixed;
     width: 260px;
     height: 0px;
-    left: 0;
+    left: 10px;
     right: 0;
-    bottom: 43px;
+    bottom: 62px;
     z-index: 2000;
     overflow-x: hidden;
     overflow-y: hidden;
     transition: 0.5s;
-    background: transparent;
+    background: #d6d6d69f;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-top-right-radius: 16px;
+    border-radius: 16px;
 }
 
 #appsmenu.dark {
@@ -221,7 +238,7 @@ a, h1, p, ul, input, span {
 #appicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
-    background: #00000050;
+    background: #ffffff7a;
     border: 1px solid white;
     transition: 0.1s;
 }
@@ -259,6 +276,12 @@ a, h1, p, ul, input, span {
     margin: 0px -1px;
 }
 
+.textinput {
+    border-radius: 16px;
+    border: 2px solid;
+    border-color: transparent;
+}
+
 
 .wppicker::-webkit-file-upload-button {
     visibility: hidden;
@@ -268,9 +291,9 @@ a, h1, p, ul, input, span {
     content: 'Select your wallpaper';
     display: inline-block;
     background: #CCC;
-    font-size: 14px;
+    font-size: 15px;
     border: 2px solid;
-    border-color: #ffffff;
+    border-color: var(--wppickercolor);;
     border-radius: 5px;
     height: 20px;
     margin: 2px 2px;
@@ -289,14 +312,14 @@ a, h1, p, ul, input, span {
 
   .wppicker {
     color: transparent;
+    --wppickercolor: #ffffff;
   }
-
 
 
 .context-menu {
     position: absolute;
     text-align: center;
-    background: transparent;
+    background: #d6d6d660;
     border: 3px solid transparent;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -369,7 +392,7 @@ a, h1, p, ul, input, span {
     border: 2px solid;
     border-color: #ffffff;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 15px;
     background: #CCC;
     font-weight: bold;
     cursor: pointer;
@@ -383,7 +406,7 @@ a, h1, p, ul, input, span {
     /*background: #0000007a;
     border-radius: 5px;*/
     z-index: 1000;
-    background: transparent;
+    background: #d6d6d660;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -462,11 +485,11 @@ a, h1, p, ul, input, span {
     left: 10px;
 }
 .winminimize > span {
-	border-bottom: 3px solid white;
+	border-bottom: 3px solid black;
 }
 .winmaximize > span {
-	border: 2px solid white;
-	border-top: 3px solid white;
+	border: 2px solid black;
+	border-top: 3px solid black;
 }
 .winmaximize > span:nth-child(2) {
 	display: none;
@@ -493,7 +516,7 @@ a, h1, p, ul, input, span {
     margin: 0px 3px 0 10px;
     line-height: 29px;
     font-size: 17px;
-    color: white;
+    color: black;
 }
 .taskbarPanel {
     display: inline-block;
@@ -523,7 +546,8 @@ a, h1, p, ul, input, span {
     height: 0px;
     transition: 0.5s;
     border-radius: 4px;
-
+    left: 0;
+    position: absolute;
 }
 #appsPanel.opened {
     background: #2e2e2e;
@@ -566,18 +590,19 @@ border-radius: 4px;
 	position: absolute;
 	height: 42px;
 	border-top: 1px solid transparent;
-	bottom: 0;
-	width: 100%;
-	border-radius: 0px;
+	bottom: 10px;
+	width: 99%;
+	border-radius: 6px;
 	margin: 0 auto;
 	left: 0;
 	z-index: 2000;
 	right: 0;
-	background: transparent;
+	background: #d6d6d69f;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	transition: 0.5s;
+	text-align: center;
 }
 #taskbar.dark {
     background: #0000009f;
@@ -587,6 +612,7 @@ border-radius: 4px;
 	z-index: 1;
 	top: 20px;
 	left: 20px;
+    display: none;
     transition: 0.2s;
 }
 #icons.dark {
@@ -626,7 +652,8 @@ border-radius: 4px;
     bottom: 65px;
     right: 20px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 18px;
+    color: #ffffff59;
 }
 
 /*Demo styles BEGIN*/
@@ -689,3 +716,38 @@ min-height: 335px;
 min-width: 358px;
 min-height: 365px;
 }
+
+
+/* Apps CSS */
+/*Calc*/
+.calcbutton {
+         background-color:white;
+         color: black;
+         border: solid 2px;
+         border-color: transparent;
+         box-shadow: 0px 0px 10px 0px #000000;
+         width: 75%;
+         height: 75%;
+         border-radius: 50px;
+         margin: 16px 2px;
+         font-size: 20px;
+         font-family: Arial, Helvetica, sans-serif;
+}
+
+.calctext {
+        background-color:white;
+        border: solid 2px;
+        border-color: black;
+        width:96%;
+        border-radius: 50px;
+        height: 100%;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+}
+.calctable {
+    border: 2px transparent;
+    height: 100%;
+    width: 100%;
+ }
+ /*Bronze*/
+
