@@ -18,7 +18,7 @@
 	<audio id="startupsnd" src="system/snd/startup.wav" hidden></audio>
 </head>
 
-<body onload="startupFunctions()">
+<body id="body" onload="startupFunctions()">
 
 	<div id="desktop" class="desktop">
 		
@@ -119,21 +119,20 @@
 			<div class="window closed" data-html="true" icon="<img src='system/img/icons/settings-32x32.png' width='32' height='32'>" data-title="Control Panel">
 				<div id="tabsettings">
 					<button id="settingsbutton" onclick="openTab('Customization')">Customization</button>
-					<button id="settingsbutton" onclick="openTab('Flags')">Flags</button>
 					<button id="settingsbutton" onclick="openTab('About')">About</button>
+					<button id="settingsbutton" class="flagsbtn" onclick="openTab('Flags')">Flags</button>
 				</div>
 					<hr id="settingshr">
 		
 			<div id="Customization" class="tab">
-				<h1 id="settingsh1" class="themestext">Themes</h1>
-				<div id="themesrow">
+				<h1 id="settingsh1" class="themes">Themes</h1>
+				<div id="themesrow" class="themes">
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
 					<button id="settingsbutton" onclick="switch_style('theme3');return false;" name="Theme 3" value="Theme 3">Classic</button>
 					<button id="settingsbutton" onclick="switch_style('theme2');return false;" name="Theme 2" value="Theme 2">Metro</button>
 					<button id="settingsbutton" onclick="switch_style('theme1');return false;" name="Theme 1" value="Theme 1">prismOS</button>
-
 				</div>
-					<hr id="settingshr" class="themeshr">
+					<hr id="settingshr" class="themes">
 					<h1 id="settingsh1">Background</h1>
 					<input id="inputbtn" class="wppicker" type="file" accept="image/*" onchange="changeBG(event)">
 					<br>
@@ -146,8 +145,10 @@
 					<br>
 					<hr id="settingshr">
 					<h1 id="settingsh1">Colors</h1>
-					<input type="color" id="colorpicker"><a>Choose your color</a></input>
-					<br>
+					<div id="sliders" style="display: block;margin-top: 15px;margin-left: 4px;">
+					<div id="colouredSlider" class="slider"></div><span id="colorslTxt" style="position: absolute; visibility: hidden;">Colors</span>
+					<div id="bwSlider" class="slider"></div><span id="briteslTxt" style="position: absolute; visibility: hidden; display: none;">Brightness</span>
+				    </div>
 					<br>
 					<input type="checkbox" id="dmToggle" class="checkBox"><a id="dmToggle">Enable Dark Mode</a></input>
 					<br id="dmToggle">
@@ -165,9 +166,11 @@
 						<hr id="settingshr">
 						<form name="searchpage" onSubmit="return enableFlag()">
 						<input type="text" size='20' name="keyword" class="textinput"><br><p style="font-size: 11px;">Theses flags are experimental<br>and may not be stable.</p> 
-						<button onClick="enableFlag()" value="Apply" onClick="searchPage()">Apply</a></button><br>
+						<button value="Apply">Apply</button>
+						<br>
 						<select style="display: none !important" name="and_or" size='0'></select><br>
 						</form>
+						<a id="button" href="index.html">Reset flags</a>
 					</div>
 				<div id="About" class="tab" style="display:none;text-align: center;overflow: hidden;">
 		
@@ -178,7 +181,7 @@
 					</div>
 		
 					<hr id="settingshr">
-					<a>November 2022 Release (Build: 7600)</a>
+					<a>November 2022 Release (Build: 8000.1)</a>
 					<br>		
 					<hr id="settingshr">
 					<a>broimluna - 2022</a>
@@ -193,7 +196,7 @@
 
 			
 		
-		<div id="taskbar" ondrop="drop(event)" ondragover="allowDrop(event)">
+		<div id="taskbar">
 			<a id="appsPanel" onclick="appstoggle()"><img src='system/img/sys_logo.png' width='62' height='36'></a>
 			<a id="time"></a>
 			<a id="date"></a>
@@ -258,24 +261,6 @@
 	</a>
 </body>
 <script>
-	$('#colorpicker').on('change', function() {
-    var cpcolor = this.value;
-	const winhead = document.getElementsByClassName('windowHeader');
-    $(winhead).css('background', cpcolor);
-	$('#taskbar').css('background', cpcolor);
-	$('#appsmenu').css('background', cpcolor);
-	$('#htmltemp').css('color', cpcolor);
-	$('#watermark').css('color', cpcolor);
-	$('#abranding a').css('color', cpcolor);
-	$('button').css('border-color', cpcolor);
-	$('#button').css('border-color', cpcolor);
-	$('.checkBox').css('color', cpcolor);
-	$('.calcbutton').css('border-color', cpcolor);
-	$('.calctext').css('border-color', cpcolor);
-	$('.textinput').css('border-color', cpcolor);
-	
-});
-
 let darkToggle = document.querySelector('#dmToggle');
 darkToggle.addEventListener('change', ()=> {
 
@@ -288,6 +273,37 @@ darkToggle.addEventListener('change', ()=> {
 	document.getElementById("icons").classList.toggle("dark");
 
 });
+
+//color slider
+var hsl1 = 0;
+var hsl2 = 50;
+
+var colourslider = $("#colouredSlider");
+colourslider.slider({
+  max: 360,
+  slide: setColour,
+  change: setColour
+});
+
+var bwslider = $("#bwSlider");
+bwslider.slider({
+  max: 100,
+  value: 50,
+  slide: setColour,
+  change: setColour
+});
+
+function setColour() {
+  hsl1 = colourslider.slider("option", "value");
+  hsl2 = bwslider.slider("option", "value");
+
+  $('.windowHeader, #appsmenu, #taskbar').css('background', "hsl(" + hsl1 + ", 100%, " + hsl2 + "%)");
+  $('#htmltemp, #watermark, #abranding a, .checkBox').css('color', "hsl(" + hsl1 + ", 100%, " + hsl2 + "%)");
+  $('#button, button, .calcbutton, .calctext, .textinput').css('border-color', "hsl(" + hsl1 + ", 100%, " + hsl2 + "%)");
+  $("#colouredSlider .ui-state-default").css("background-color", "hsl(" + hsl1 + ", 100%, 50%)");
+  $("#bwSlider .ui-state-default").css("background-color", "rgb(" + hsl2 * 2.5 + "," + hsl2 * 2.5 + "," + hsl2 * 2.5 + ")");
+}
+//end of it
 </script>
 </html>
 

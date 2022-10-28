@@ -17,13 +17,11 @@ input,select{vertical-align:middle}
 
 
 @media screen and (max-width:769px) {
-    #themesrow, .themestext, .themeshr, #app6 {
+    #themesrow, .themestext, .themeshr, #app6, #sliders {
         display: none !important;
     }
-    #taskbar {
-        bottom: 0px !important;
-    }
   }
+
 
 ::-webkit-scrollbar-track
 {
@@ -139,6 +137,34 @@ input,select{vertical-align:middle}
     color: black;
 }*/
 
+.slider {
+    width: 100px;
+    border-radius: 16px;
+    border: transparent;
+  }
+  
+  #colouredSlider {
+    background: -webkit-linear-gradient(left, red, orange, yellow, lime, aqua, blue, purple, red);
+    background: -o-linear-gradient(left, red, orange, yellow, lime, aqua, blue, purple, red);
+    background: -moz-linear-gradient(left, red, orange, yellow, lime, aqua, blue, purple, red);
+    background: linear-gradient(to right, red, orange, yellow, lime, aqua, blue, purple, red);
+  }
+  
+  #colouredSlider .ui-slider-range {
+    background: red;
+    border-radius: 16px;
+  }
+  
+  #colouredSlider .ui-state-default,
+  .ui-widget-content .ui-state-default {
+    background: none;
+    background-color: red;
+     border-radius: 16px;
+  }
+  
+  #bwSlider {
+     display: none;
+  }
 
 
 #desktop {
@@ -275,7 +301,9 @@ input,select{vertical-align:middle}
 #tabsettings button {
     margin: 0px -1px;
 }
-
+/*.flagsbtn {
+    display: none;
+}*/
 .textinput {
     border-radius: 16px;
     border: 2px solid;
@@ -655,6 +683,7 @@ border-radius: 4px;
     font-size: 18px;
     color: #ffffff59;
 }
+  
 
 /*Demo styles BEGIN*/
 #window0 {	top: 35px;	left: 240px;}

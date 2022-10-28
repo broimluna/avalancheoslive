@@ -22,7 +22,6 @@ function dis(val)
 // Next App
 
 
-
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -57,14 +56,15 @@ id;
 	
 	var paRameter = getParameterByName('flag');
 	var startup = getStartValByName('startup');
+	var flags = getStartValByName('flags');
 
  
  // Enables flag when page loads
 	 $(document).ready(function() {
 	
 // CSSDev: enables css dev theme
-		if (paRameter == 'ThisIsTheSecretDevMode') {
-		   $("<style type='text/css'> #watermark { display: inline-block !important; } #startup {  display:none !important; } #desktop { background: url('https://r4.wallpaperflare.com/wallpaper/302/856/30/artwork-windows-7-sea-fish-wallpaper-d9b0088de1fafd6be647480f70e196cd.jpg');</style>").appendTo("#desktop");
+		if (paRameter == 'ThisIsTheSecretDevMode!') {
+		   $("<style type='text/css'> #watermark { display: inline-block !important; } #startup {  display:none !important; } #desktop { } </style>").appendTo("#desktop");
 		} 
 
 		if (paRameter == 'NoStartup') {
@@ -74,12 +74,20 @@ id;
 		  if (paRameter == 'DockedTB') {
 			$("<style type='text/css'> #taskbar {  width:40% !important; } #appsPanel {  left:0 !important; position:unset !important; } #appsmenu {  margin: 0 auto !important; }</style>").appendTo("#desktop");
 		  }
-		  if (paRameter == 'EnableDisabledThemedFeatures') {
+		  if (paRameter == 'EnableDisabledThemesFeatures') {
 			$("<style type='text/css'> #centrdAppsChk, .centrdAppsTxt, #showContainedChk, .showContainedTxt, .tskbrtab, #dmToggle { display: revert !important; }</style>").appendTo("#desktop");
 		  }
 
+		  if (paRameter == 'DisableTheming') {
+			$("<style type='text/css'> .themes {  display:none !important; }</style>").appendTo("div");
+			} 
+
 		  if (startup == 'no') {
 			$('#startup').css('display','none');
+		} 
+		
+		if (flags == 'yes') {
+			$('.flagsbtn').css('display','inline-block');
 		} 
 
 		
@@ -247,10 +255,6 @@ $(document).ready(function(){
   function defaultColors() {
 	// Get the checkbox
 	var checkBox = document.getElementById("defaultColor");
-	// Get the output text
-	var taskbar = document.getElementById("taskbar");
-	var appsmenu = document.getElementById("appsmenu");
-	var htmltemp = document.getElementById("htmltemp");
 	// If the checkbox is checked, display the output text
 	if (checkBox.checked == true){
 		$('#taskbar').css('background', '');
@@ -371,9 +375,6 @@ function get_cookie_style ( cookie_name )
 }
 
 
-// Cookies 
-
-
 
 
 function startupFunctions() {
@@ -409,9 +410,9 @@ function minimizeWindow(id){
 	windowLeftPos[id] = $("#window" + id).css("left");
 	
 	$("#window" + id).animate({
-		top: 800,
-		left: 0
-	}, 200, function() {		//animation complete
+		opacity: 0,
+
+	}, 100, function() {		//animation complete
 		$("#window" + id).addClass('minimizedWindow');
 		$("#minimPanel" + id).addClass('minimizedTab');
 		$("#minimPanel" + id).removeClass('activeTab');
@@ -419,6 +420,9 @@ function minimizeWindow(id){
 }
 
 function openWindow(id) {
+	$('#window' + id).animate({
+		opacity: 1,
+	}, 0, function() {
 	if ($('#window' + id).hasClass("minimizedWindow")) {
 		openMinimized(id);
 	} else {	
@@ -426,10 +430,17 @@ function openWindow(id) {
 		$("#window" + id).removeClass("closed");
 		$("#minimPanel" + id).removeClass("closed");
 	}
+});	
 }
 function closeWindwow(id) {
+
+	$("#window" + id).animate({
+		opacity: 0,
+
+	}, 200, function() {
 	$("#window" + id).addClass("closed");
 	$("#minimPanel" + id).addClass("closed");
+	});
 }
 
 function openMinimized(id) {
@@ -438,8 +449,7 @@ function openMinimized(id) {
 	makeWindowActive(id);
 		
 	$('#window' + id).animate({
-		top: windowTopPos[id],
-		left: windowLeftPos[id]
+		opacity: 1,
 	}, 200, function() {
 	});				
 }
@@ -463,7 +473,7 @@ $(document).ready(function(){
 	$("#window" + (i-1)).addClass('activeWindow');
 	
 	$( ".wincontent" ).resizable();			// resizable
-	$( ".window" ).draggable({ cancel: ".wincontent" });	// draggable
+	$( ".window" ).draggable({ cancel: ".wincontent", iframeFix: true});	// draggable
 	
 
     $(".window").mousedown(function(){		// active window on top (z-index 1000)
@@ -493,6 +503,7 @@ $(document).ready(function(){
 	
     $(".openWindow").click(function(){		// open closed window
 		openWindow($(this).attr("data-id"));
+		
     });
 	
     $(".winmaximize").click(function(){
