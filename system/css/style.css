@@ -141,6 +141,7 @@ input,select{vertical-align:middle}
     width: 100px;
     border-radius: 16px;
     border: transparent;
+    cursor: e-resize;
   }
   
   #colouredSlider {
@@ -148,6 +149,7 @@ input,select{vertical-align:middle}
     background: -o-linear-gradient(left, red, orange, yellow, lime, aqua, blue, purple, red);
     background: -moz-linear-gradient(left, red, orange, yellow, lime, aqua, blue, purple, red);
     background: linear-gradient(to right, red, orange, yellow, lime, aqua, blue, purple, red);
+    cursor: e-resize;
   }
   
   #colouredSlider .ui-slider-range {
@@ -160,6 +162,7 @@ input,select{vertical-align:middle}
     background: none;
     background-color: red;
      border-radius: 16px;
+     cursor: e-resize;
   }
   
   #bwSlider {
