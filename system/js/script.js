@@ -268,6 +268,8 @@ $(document).ready(function(){
 		$('.calcbutton').css('border-color', '');
 		$('.calctext').css('border-color', '');
 		$('.textinput').css('border-color', '');
+		$('.rstflgs').css('border-color', '');
+
 	  
 	} else {
 		$('#taskbar').css('background', '');
@@ -281,6 +283,7 @@ $(document).ready(function(){
 		$('.calcbutton').css('border-color', '');
 		$('.calctext').css('border-color', '');
 		$('.textinput').css('border-color', '');
+		$('.rstflgs').css('border-color', '');
 	}
 	const winhead = document.getElementsByClassName('windowHeader');
     $(winhead).css('background', '');
